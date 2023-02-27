@@ -37,7 +37,7 @@ struct ContentView: View {
                             decrement()
                         } label: {
                             Label("Increment", systemImage: "arrow.down")
-                                .niceButton(color: .niceButton(color: Color(red: 125/255, green: 222/255, blue: 146/255)))
+                                .niceButton(color: Color(red: 240/255, green: 113/255, blue:103/255))
                         }
                     }
                 }
