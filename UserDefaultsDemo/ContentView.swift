@@ -29,13 +29,7 @@ struct ContentView: View {
                         increment()
                     } label: {
                         Label("Increment", systemImage: "arrow.up")
-                            .foregroundColor(.black)
-                            .padding(20)
-                            .background(Color(red: 125/255, green: 222/255, blue: 146/255))
-                            .cornerRadius(15)
-                            .padding(5)
-                            .background(.black)
-                            .cornerRadius(20)
+                            .niceButton(color: Color(red: 125/255, green: 222/255, blue: 146/255))
                         
                     }
                     if cupsDrank > 0 {
@@ -43,13 +37,7 @@ struct ContentView: View {
                             decrement()
                         } label: {
                             Label("Increment", systemImage: "arrow.down")
-                                .foregroundColor(.black)
-                                .padding(20)
-                                .background(Color(red: 240/255, green: 113/255, blue:103/255))
-                                .cornerRadius(15)
-                                .padding(5)
-                                .background(.black)
-                                .cornerRadius(20)
+                                .niceButton(color: .niceButton(color: Color(red: 125/255, green: 222/255, blue: 146/255)))
                         }
                     }
                 }
@@ -86,3 +74,27 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+extension View {
+    func niceButton(color: Color) -> some View {
+        modifier(NiceButton(color: color))
+        
+    }
+}
+struct NiceButton: ViewModifier {
+    let color: Color
+    
+    func body(content: Content) -> some View {
+    content
+          .foregroundColor(.black)
+          .padding(20)
+          .background(color)
+          .cornerRadius(15)
+          .padding(5)
+          .background(.black)
+          .cornerRadius(20)
+  }
+}
+
+
